@@ -232,15 +232,41 @@
 
 <script>
 
-function updateWardOptions(){
+<script>
+
+function selectBuilding(building){
+
+  document.getElementById("building").value =
+    building;
+
+  document
+    .getElementById("btn100")
+    .classList.remove("active");
+
+  document
+    .getElementById("btn400")
+    .classList.remove("active");
+
+  if(building === "อาคาร 100 เตียง"){
+
+    document
+      .getElementById("btn100")
+      .classList.add("active");
+
+  }else{
+
+    document
+      .getElementById("btn400")
+      .classList.add("active");
+  }
+
+  updateWardOptions(building);
+}
+
+function updateWardOptions(building){
 
   const wardSelect =
     document.getElementById("ward");
-
-  const building =
-    document.querySelector(
-      'input[name="building"]:checked'
-    ).value;
 
   wardSelect.innerHTML = "";
 
@@ -260,7 +286,7 @@ function updateWardOptions(){
       "OR100"
     ];
 
-  }else if(building === "อาคาร 400 เตียง"){
+  }else{
 
     wards = [
       "Ward 8/1",
@@ -289,6 +315,7 @@ function updateWardOptions(){
       document.createElement("option");
 
     option.value = ward;
+
     option.text = ward;
 
     wardSelect.appendChild(option);
@@ -296,6 +323,8 @@ function updateWardOptions(){
   });
 
 }
+
+</script>
 
 </script>
 
