@@ -118,5 +118,74 @@
 
 </div>
 
+<script>
+
+function updateWardOptions(){
+
+  const wardSelect =
+    document.getElementById("ward");
+
+  const building =
+    document.querySelector(
+      'input[name="building"]:checked'
+    ).value;
+
+  wardSelect.innerHTML = "";
+
+  let wards = [];
+
+  if(building === "อาคาร 100 เตียง"){
+
+    wards = [
+      "Ward 7A",
+      "Ward 7B",
+      "Ward 8A",
+      "Ward 8B",
+      "Ward 9A",
+      "Ward 9B",
+      "Ward 14",
+      "ICU100",
+      "OR100"
+    ];
+
+  }else if(building === "อาคาร 400 เตียง"){
+
+    wards = [
+      "Ward 8/1",
+      "Ward 8/2",
+      "Ward 8/3",
+      "Ward 8/4",
+      "Ward 9/1",
+      "Ward 9/2",
+      "Ward 9/3",
+      "Ward 9/4",
+      "Ward 10/1",
+      "Ward 10/2",
+      "MICU",
+      "CCU",
+      "SICU",
+      "SEMI",
+      "PICU",
+      "NICU",
+      "OR400"
+    ];
+  }
+
+  wards.forEach(function(ward){
+
+    const option =
+      document.createElement("option");
+
+    option.value = ward;
+    option.text = ward;
+
+    wardSelect.appendChild(option);
+
+  });
+
+}
+
+</script>
+  
 </body>
 </html>
