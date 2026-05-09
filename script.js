@@ -1,5 +1,5 @@
 const SCRIPT_URL =
-  "https://script.google.com/macros/s/AKfycbyQWvklI7bLyaq9482fqFtAsjs09MKd3ka-jCKp3qtMCcnataEWtGXOTAWrJ-No12gs/exec";
+  "https://script.google.com/macros/s/AKfycbwS2Vaw_yzUf0vTwu0G3E5Gd-V3TWAYUJEy0e1jlTnMf_zNdUyYb5EY1P5Exyvi09Ua/exec";
 
 async function saveTask() {
 
