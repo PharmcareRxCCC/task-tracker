@@ -94,9 +94,23 @@
   }
 
   #result{
-    margin-top:20px;
-    text-align:center;
-  }
+
+  margin-top:20px;
+
+  text-align:center;
+
+  background:#e8f5e9;
+
+  color:#2e7d32;
+
+  padding:14px;
+
+  border-radius:10px;
+
+  font-weight:bold;
+
+  display:none;
+}
 
   @media (max-width:600px){
 
@@ -500,8 +514,12 @@ function submitForm(){
     String(now.getMinutes()).padStart(2,'0') + ":" +
     String(now.getSeconds()).padStart(2,'0');
 
+  document.getElementById("result").style.display =
+  "block";
+  
   document.getElementById("result").innerHTML =
-    "Task submitted at " + timestamp;
+    "✅ Task submitted successfully<br>" +
+    timestamp;
 
 }
 
