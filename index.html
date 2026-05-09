@@ -123,7 +123,7 @@
   </select>
 
   <label>Description</label>
-  <textarea rows="4"></textarea>
+  <textarea rows="2"></textarea>
 
   <button onclick="submitForm()">
   Submit
@@ -208,17 +208,16 @@ function submitForm(){
 
   const now = new Date();
 
-  const date =
-    now.toLocaleDateString();
-
-  const time =
-    now.toLocaleTimeString();
+  const timestamp =
+    now.getFullYear() + "-" +
+    String(now.getMonth() + 1).padStart(2,'0') + "-" +
+    String(now.getDate()).padStart(2,'0') + " " +
+    String(now.getHours()).padStart(2,'0') + ":" +
+    String(now.getMinutes()).padStart(2,'0') + ":" +
+    String(now.getSeconds()).padStart(2,'0');
 
   document.getElementById("result").innerHTML =
-    "Task submitted on "
-    + date
-    + " at "
-    + time;
+    "Task submitted at " + timestamp;
 
 }
 
