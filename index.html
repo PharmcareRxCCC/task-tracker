@@ -108,6 +108,42 @@
       padding:20px;
     }
 
+.building-buttons{
+
+  display:flex;
+
+  gap:10px;
+
+  margin-top:10px;
+  margin-bottom:20px;
+}
+
+.building-btn{
+
+  flex:1;
+
+  padding:12px;
+
+  border:none;
+
+  border-radius:8px;
+
+  background:#e0e0e0;
+
+  cursor:pointer;
+
+  font-size:16px;
+
+  transition:0.2s;
+}
+
+.building-btn.active{
+
+  background:#4285f4;
+
+  color:white;
+}
+    
   }
 
 </style>
@@ -130,27 +166,33 @@
 
   <label>Building</label>
 
-<div style="margin-bottom:20px;">
+<div class="building-buttons">
 
-  <input
-    type="radio"
-    name="building"
-    value="อาคาร 100 เตียง"
-    onclick="updateWardOptions()">
+  <button
+    type="button"
+    id="btn100"
+    class="building-btn"
+    onclick="selectBuilding('อาคาร 100 เตียง')">
 
-  อาคาร 100 เตียง
+    อาคาร 100 เตียง
 
-  <br><br>
+  </button>
 
-  <input
-    type="radio"
-    name="building"
-    value="อาคาร 400 เตียง"
-    onclick="updateWardOptions()">
+  <button
+    type="button"
+    id="btn400"
+    class="building-btn"
+    onclick="selectBuilding('อาคาร 400 เตียง')">
 
-  อาคาร 400 เตียง
+    อาคาร 400 เตียง
+
+  </button>
 
 </div>
+
+<input
+  type="hidden"
+  id="building">
 
 <label>Ward</label>
 
