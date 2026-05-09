@@ -546,7 +546,12 @@ async function submitForm(){
     "https://script.google.com/macros/s/AKfycbwS2Vaw_yzUf0vTwu0G3E5Gd-V3TWAYUJEy0e1jlTnMf_zNdUyYb5EY1P5Exyvi09Ua/exec",
     {
 
+            
       method:"POST",
+      
+      headers:{
+      "Content-Type":"application/json"
+      },
 
       body:JSON.stringify(data)
 
@@ -557,8 +562,20 @@ async function submitForm(){
   "block";
   
   document.getElementById("result").innerHTML =
-    "✅ Task submitted successfully<br>" +
-    timestamp;
+      "✅ Task submitted successfully<br>" +
+      timestamp;
+
+  }catch(error){
+
+    document.getElementById("result").style.display =
+      "block";
+
+    document.getElementById("result").innerHTML =
+      "❌ Error submitting task";
+
+    console.log(error);
+
+  }
 
 }
 
