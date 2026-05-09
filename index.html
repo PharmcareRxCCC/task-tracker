@@ -3,7 +3,7 @@
 
 <head>
 
-  <title>Task Tracker</title>
+  <title>Job Task Form</title>
 
   <style>
 
@@ -13,26 +13,46 @@
       padding:40px;
     }
 
-    .box{
+    .container{
       background:white;
       max-width:500px;
       margin:auto;
       padding:30px;
       border-radius:10px;
+      box-shadow:0 2px 10px rgba(0,0,0,0.1);
     }
 
-    textarea,input{
+    h2{
+      text-align:center;
+    }
+
+    input,
+    select,
+    textarea{
+
       width:100%;
       padding:12px;
+      margin-top:10px;
       margin-bottom:20px;
+      border:1px solid #ccc;
+      border-radius:5px;
+      box-sizing:border-box;
     }
 
     button{
-      padding:12px 20px;
+
+      width:100%;
+      padding:12px;
       background:#4285f4;
       color:white;
       border:none;
+      border-radius:5px;
       cursor:pointer;
+      font-size:16px;
+    }
+
+    button:hover{
+      background:#3367d6;
     }
 
   </style>
@@ -41,57 +61,38 @@
 
 <body>
 
-<div class="box">
+<div class="container">
 
-  <h2>Create Task</h2>
+  <h2>Create Job Task</h2>
 
-  <textarea
-    id="taskDescription"
-    placeholder="Task Description">
-  </textarea>
+  <label>Priority</label>
 
-  <input
-    type="text"
-    id="createdBy"
-    placeholder="Your Name">
+  <select>
+    <option>High</option>
+    <option>Medium</option>
+    <option>Low</option>
+  </select>
 
-  <button onclick="saveTask()">
-    Save Task
+  <label>Building</label>
+  <input type="text">
+
+  <label>Ward</label>
+  <input type="text">
+
+  <label>Bed no.</label>
+  <input type="text">
+
+  <label>Patient Name</label>
+  <input type="text">
+
+  <label>Job</label>
+  <textarea rows="4"></textarea>
+
+  <button>
+    Submit
   </button>
 
-  <p id="result"></p>
-
 </div>
-
-<script>
-
-const SCRIPT_URL =
-"PASTE_YOUR_GOOGLE_SCRIPT_URL_HERE";
-
-async function saveTask(){
-
-  const taskDescription =
-    document.getElementById("taskDescription").value;
-
-  const createdBy =
-    document.getElementById("createdBy").value;
-
-  const response = await fetch(SCRIPT_URL,{
-    method:"POST",
-    body:JSON.stringify({
-      taskDescription,
-      createdBy
-    })
-  });
-
-  const result = await response.json();
-
-  document.getElementById("result").innerHTML =
-    "Saved Task: " + result.taskId;
-
-}
-
-</script>
 
 </body>
 </html>
