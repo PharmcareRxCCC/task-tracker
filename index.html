@@ -560,13 +560,10 @@ formData.append("patientName", data.patientName);
 formData.append("job", data.job);
 formData.append("description", data.description);
 
-const response = await fetch(
-  "https://script.google.com/macros/s/AKfycbwS2Vaw_yzUf0vTwu0G3E5Gd-V3TWAYUJEy0e1jlTnMf_zNdUyYb5EY1P5Exyvi09Ua/exec",
-  {
-    method: "POST",
-    body: formData
-  }
-);
+await fetch("YOUR_SCRIPT_URL", {
+  method: "POST",
+  body: formData
+});
 
     const result = await response.text();
 
