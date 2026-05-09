@@ -144,6 +144,60 @@
 
   color:white;
 }
+
+    .priority-buttons{
+
+  display:flex;
+
+  flex-wrap:wrap;
+
+  gap:10px;
+
+  margin-top:10px;
+  margin-bottom:20px;
+}
+
+.priority-btn{
+
+  width:auto;
+
+  padding:10px 18px;
+
+  border:none;
+
+  border-radius:999px;
+
+  font-size:15px;
+
+  cursor:pointer;
+
+  transition:0.2s;
+
+  color:#333;
+}
+
+.priority-btn.high{
+  background:#ffd6d6;
+}
+
+.priority-btn.medium{
+  background:#ffe9c7;
+}
+
+.priority-btn.low{
+  background:#d9f7d9;
+}
+
+.priority-btn.non{
+  background:#eeeeee;
+}
+
+.priority-btn.active{
+
+  outline:3px solid #4285f4;
+
+  transform:scale(1.05);
+}
     
   }
 
@@ -158,23 +212,54 @@
   <h2>Create Job Task</h2>
 
   <label>Priority</label>
-  <select>
 
-  <option
-    value=""
-    disabled
-    selected>
+<div class="priority-buttons">
 
-    Select Priority
+  <button
+    type="button"
+    id="highBtn"
+    class="priority-btn high"
+    onclick="selectPriority('High')">
 
-  </option>
+    High
 
-  <option>High</option>
-  <option>Medium</option>
-  <option>Low</option>
-  <option>Non-important</option>
+  </button>
 
-  </select>
+  <button
+    type="button"
+    id="mediumBtn"
+    class="priority-btn medium"
+    onclick="selectPriority('Medium')">
+
+    Medium
+
+  </button>
+
+  <button
+    type="button"
+    id="lowBtn"
+    class="priority-btn low"
+    onclick="selectPriority('Low')">
+
+    Low
+
+  </button>
+
+  <button
+    type="button"
+    id="nonBtn"
+    class="priority-btn non"
+    onclick="selectPriority('Non-important')">
+
+    Non-important
+
+  </button>
+
+</div>
+
+<input
+  type="hidden"
+  id="priority">
 
   <label>Building</label>
 
@@ -357,6 +442,50 @@ function updateWardOptions(building){
 
 </script>
 
+  <script>
+
+function selectPriority(priority){
+
+  document.getElementById("priority").value =
+    priority;
+
+  document
+    .querySelectorAll(".priority-btn")
+    .forEach(function(btn){
+
+      btn.classList.remove("active");
+
+    });
+
+  if(priority === "High"){
+    document
+      .getElementById("highBtn")
+      .classList.add("active");
+  }
+
+  if(priority === "Medium"){
+    document
+      .getElementById("mediumBtn")
+      .classList.add("active");
+  }
+
+  if(priority === "Low"){
+    document
+      .getElementById("lowBtn")
+      .classList.add("active");
+  }
+
+  if(priority === "Non-important"){
+    document
+      .getElementById("nonBtn")
+      .classList.add("active");
+  }
+
+}
+
+</script>
+
+  
 <script>
 
 function submitForm(){
