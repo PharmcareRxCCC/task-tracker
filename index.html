@@ -287,7 +287,8 @@ function updateWardOptions(building){
   const wardSelect =
     document.getElementById("ward");
 
-  wardSelect.innerHTML = "";
+  wardSelect.innerHTML =
+  '<option value="" disabled selected>Select Ward</option>';
 
   let wards = [];
 
