@@ -1,14 +1,49 @@
 <!DOCTYPE html>
 <html>
+
 <head>
+
   <title>Task Tracker</title>
-  <link rel="stylesheet" href="style.css">
+
+  <style>
+
+    body{
+      font-family:Arial;
+      background:#f4f4f4;
+      padding:40px;
+    }
+
+    .box{
+      background:white;
+      max-width:500px;
+      margin:auto;
+      padding:30px;
+      border-radius:10px;
+    }
+
+    textarea,input{
+      width:100%;
+      padding:12px;
+      margin-bottom:20px;
+    }
+
+    button{
+      padding:12px 20px;
+      background:#4285f4;
+      color:white;
+      border:none;
+      cursor:pointer;
+    }
+
+  </style>
+
 </head>
+
 <body>
 
-<div class="container">
+<div class="box">
 
-  <h1>Create Task</h1>
+  <h2>Create Task</h2>
 
   <textarea
     id="taskDescription"
@@ -18,7 +53,7 @@
   <input
     type="text"
     id="createdBy"
-    placeholder="Created By">
+    placeholder="Your Name">
 
   <button onclick="saveTask()">
     Save Task
@@ -28,7 +63,35 @@
 
 </div>
 
-<script src="script.js"></script>
+<script>
+
+const SCRIPT_URL =
+"PASTE_YOUR_GOOGLE_SCRIPT_URL_HERE";
+
+async function saveTask(){
+
+  const taskDescription =
+    document.getElementById("taskDescription").value;
+
+  const createdBy =
+    document.getElementById("createdBy").value;
+
+  const response = await fetch(SCRIPT_URL,{
+    method:"POST",
+    body:JSON.stringify({
+      taskDescription,
+      createdBy
+    })
+  });
+
+  const result = await response.json();
+
+  document.getElementById("result").innerHTML =
+    "Saved Task: " + result.taskId;
+
+}
+
+</script>
 
 </body>
 </html>
