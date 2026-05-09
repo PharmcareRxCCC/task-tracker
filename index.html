@@ -125,9 +125,11 @@
   <label>Description</label>
   <textarea rows="4"></textarea>
 
-  <button>
-    Submit
+  <button onclick="submitForm()">
+  Submit
   </button>
+
+  <p id="result"></p>
 
 </div>
 
@@ -199,6 +201,29 @@ function updateWardOptions(){
 }
 
 </script>
+
+<script>
+
+function submitForm(){
+
+  const now = new Date();
+
+  const date =
+    now.toLocaleDateString();
+
+  const time =
+    now.toLocaleTimeString();
+
+  document.getElementById("result").innerHTML =
+    "Task submitted on "
+    + date
+    + " at "
+    + time;
+
+}
+
+</script>
+
   
 </body>
 </html>
