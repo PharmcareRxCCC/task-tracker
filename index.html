@@ -70,7 +70,7 @@
     resize:vertical;
   }
 
-  button{
+  .submit-btn{
 
     width:100%;
 
@@ -159,15 +159,26 @@
 
   <label>Priority</label>
   <select>
-    <option>High</option>
-    <option>Medium</option>
-    <option>Low</option>
-    <option>Non-important</option>
+
+  <option
+    value=""
+    disabled
+    selected>
+
+    Select Priority
+
+  </option>
+
+  <option>High</option>
+  <option>Medium</option>
+  <option>Low</option>
+  <option>Non-important</option>
+
   </select>
 
   <label>Building</label>
 
-<div class="building-buttons">
+  <div class="building-buttons">
 
   <button
     type="button"
@@ -198,7 +209,16 @@
 <label>Ward</label>
 
 <select id="ward">
-  <option>Select Ward</option>
+
+  <option
+    value=""
+    disabled
+    selected>
+
+    Select Ward
+
+  </option>
+
 </select>
 
   <label>Bed no.</label>
@@ -223,9 +243,9 @@
   <label>Description</label>
   <textarea rows="2"></textarea>
 
-  <button onclick="submitForm()">
+  <button class="submit-btn" onclick="submitForm()">
   Submit
-  </button>
+</button>
 
   <p id="result"></p>
 
