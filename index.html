@@ -322,13 +322,13 @@
 </select>
 
   <label>Bed no.</label>
-  <input type="text">
+  <input type="text" id="bedno">
 
   <label>Patient Name</label>
-  <input type="text">
+  <input type="text" id="patientName">
 
   <label>Job</label>
-  <select>
+  <select id="job">
 
   <option
     value=""
@@ -352,7 +352,7 @@
  </select>
 
   <label>Description</label>
-  <textarea rows="2"></textarea>
+  <textarea rows="2" id="description"></textarea>
 
   <button class="submit-btn" onclick="submitForm()">
   Submit
@@ -503,7 +503,7 @@ function selectPriority(priority){
   
 <script>
 
-function submitForm(){
+async function submitForm(){
 
   const now = new Date();
 
@@ -514,6 +514,44 @@ function submitForm(){
     String(now.getHours()).padStart(2,'0') + ":" +
     String(now.getMinutes()).padStart(2,'0') + ":" +
     String(now.getSeconds()).padStart(2,'0');
+
+  const data = {
+
+    timestamp: timestamp,
+
+    priority:
+      document.getElementById("priority").value,
+
+    building:
+      document.getElementById("building").value,
+
+    ward:
+      document.getElementById("ward").value,
+
+    bedno:
+      document.getElementById("bedno").value,
+
+    patientName:
+      document.getElementById("patientName").value,
+
+    job:
+      document.getElementById("job").value,
+
+    description:
+      document.getElementById("description").value
+
+  };
+
+  const response = await fetch(
+    "PASTE_YOUR_WEB_APP_URL_HERE",
+    {
+
+      method:"POST",
+
+      body:JSON.stringify(data)
+
+    }
+  );
 
   document.getElementById("result").style.display =
   "block";
